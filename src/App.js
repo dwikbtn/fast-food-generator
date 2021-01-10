@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import Layout from './containers/Layout/Layout'
-import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
+import Layout from "./containers/Layout/Layout";
+import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 
 export default class App extends Component {
   render() {
@@ -11,6 +11,6 @@ export default class App extends Component {
           <BurgerBuilder />
         </Layout>
       </div>
-    )
+    );
   }
 }
