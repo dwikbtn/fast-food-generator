@@ -1,8 +1,8 @@
 import React from "react";
 
-import Classes from "./Order.css";
+import Classes from "./Order.module.css";
 
-export const Order = (props) => {
+const Order = (props) => {
   return (
     <div className={Classes.Order}>
       <p>ingredients: Salad (1)</p>
@@ -12,3 +12,5 @@ export const Order = (props) => {
     </div>
   );
 };
+
+export default Order;
