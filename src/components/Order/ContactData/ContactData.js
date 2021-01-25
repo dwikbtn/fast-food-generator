@@ -44,7 +44,7 @@ export default class ContactData extends Component {
       email: {
         elementType: "input",
         elementConfig: {
-          type: "text",
+          type: "email",
           placeholder: "your email",
         },
         value: "",
@@ -81,6 +81,17 @@ export default class ContactData extends Component {
         this.setState({ loading: false });
       });
   };
+  inputChangedHandler = (event, inputIdentifier) => {
+    const updatedOrderForm = {
+      ...this.state.orderForm,
+    };
+    const updatedFormElement = {
+      ...updatedOrderForm[inputIdentifier],
+    };
+    updatedFormElement.value = event.target.value;
+    updatedOrderForm[inputIdentifier] = updatedFormElement;
+    this.setState({ orderForm: updatedOrderForm });
+  };
   render() {
     const formElementArray = [];
     for (let key in this.state.orderForm) {
@@ -89,7 +100,6 @@ export default class ContactData extends Component {
         config: this.state.orderForm[key],
       });
     }
-    console.log(formElementArray);
     let form = (
       <form>
         {formElementArray.map((formElement) => {
@@ -99,6 +109,9 @@ export default class ContactData extends Component {
               elementType={formElement.config.elementType}
               elementConfig={formElement.config.elementConfig}
               value={formElement.config.value}
+              changed={(event) =>
+                this.inputChangedHandler(event, formElement.id)
+              }
             />
           );
         })}
